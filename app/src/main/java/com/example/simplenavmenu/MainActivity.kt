@@ -10,27 +10,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navMenu = findViewById<BottomNavigationView>(R.id.navMenu)
-        navMenu.setOnNavigationItemSelectedListener {
-           navClick(it)
+        findViewById<BottomNavigationView>(R.id.navMenu).setOnNavigationItemSelectedListener { item ->
+            navClick(item)
         }
 
 
     }
 
-    private fun navClick(it : MenuItem): Boolean {
-        when(it.itemId){
+    private fun navClick(it: MenuItem): Boolean {
+        when (it.itemId) {
             R.id.first -> {
-                findViewById<TextView>(R.id.textView).text = "First"
+                val s = "First"
+                findViewById<TextView>(R.id.textView).text = s
                 true
             }
 
             R.id.second -> {
-                findViewById<TextView>(R.id.textView).text = "second"
+                val s = "Second"
+                findViewById<TextView>(R.id.textView).text = s
                 true
             }
-            R.id.third ->{
-                findViewById<TextView>(R.id.textView).text = "third"
+            R.id.third -> {
+                val s = "Third"
+                findViewById<TextView>(R.id.textView).text = s
                 true
             }
             else -> false
